@@ -1,6 +1,8 @@
 __webpack_public_path__ = window.__webpack_public_path__; // eslint-disable-line
 
 import Global from './theme/global';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 const getAccount = () => import('./theme/account');
 const getLogin = () => import('./theme/auth');
@@ -96,3 +98,37 @@ window.stencilBootstrap = function stencilBootstrap(pageType, contextJSON = null
         },
     };
 };
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait for the DOM to be fully loaded
+    
+    // Check if React and ReactDOM are available
+    if (typeof React !== 'undefined' && typeof ReactDOM !== 'undefined') {
+
+        console.log("loaded Dom ");
+        // Check if the RenderPopup component is available globally
+        if (window.RenderPopup) {
+            // Access the default export of the RenderPopup module
+            var RenderPopupComponent = window.RenderPopup.default;
+            
+            // Get the HTML container where you want to render the component
+            var container = document.getElementById('popup-container');
+            
+            // Check if the container exists
+            if (container) {
+                // Render the RenderPopup component into the container
+                ReactDOM.render(
+                    React.createElement(RenderPopupComponent),
+                    container
+                );
+            } else {
+                console.error('Container element not found');
+            }
+        } else {
+            console.error('RenderPopup component not found');
+        }
+    } else {
+        console.error('React or ReactDOM not loaded');
+    }
+});
