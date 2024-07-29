@@ -26,6 +26,8 @@
         </script>
         <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload' as='script'}}"></script>
         
+        <script src="https://cdn.jsdelivr.net/gh/shahirneopraxis/Cdn-Integration@master/dist/RenderPopup.bundle.d13147f85a32ff3c372a.js"></script>
+
         {{getFontsCollection font-display='block'}}
         
         <script async src="{{cdn 'assets/dist/theme-bundle.font.js' resourceHint='preload' as='script'}}"></script>
@@ -50,6 +52,9 @@
     </head>
     <body>
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
+
+        // Render Here
+        <div id="popup-container">where is the popup?</div>
 
         {{> components/common/header }}
         {{> components/common/body }}
